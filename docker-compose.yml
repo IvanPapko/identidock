@@ -1,0 +1,23 @@
+services:
+  identidock:
+    build: .
+    networks:
+      - myNet
+    ports:
+      - "5000:5000"
+    environment:
+      ENV: DEV
+    volumes:
+      - ./app:/app
+  dnmonster:
+    image: amouat/dnmonster
+    networks:
+      - myNet
+  redis:
+    image: redis
+    networks:
+      - myNet
+networks:
+  myNet:
+
+
